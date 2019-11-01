@@ -24,3 +24,12 @@ RUN apt-get update -qq \
   && apt-get -y install --no-install-recommends ros-dashing-desktop \
   && apt-get autoclean && apt-get clean && apt-get -y autoremove \
   && rm -rf /var/lib/apt/lists/*
+
+#---
+
+FROM base AS base-ros1-bridge
+
+RUN apt-get update -qq \
+  && apt-get -y install ros-dashing-ros1-bridge \
+  && apt-get autoclean && apt-get clean && apt-get -y autoremove \
+  && rm -rf /var/lib/apt/lists/*
